@@ -1,0 +1,33 @@
+{% load static %}<!doctype html>
+<html lang="en">
+<head>{% include "_head.html" %}</head>
+<body>
+  <main class="hud booting" id="hud">
+    <aside class="core-panel">
+      <div class="core" id="core" aria-hidden="true">{% include "_reactor.html" %}</div>
+      <h1 class="wordmark">J.A.R.V.I.S.</h1>
+      <p class="status" id="status">Initialising</p>
+      <div class="toggles">
+        <button class="toggle" id="voice" type="button" aria-pressed="true">Voice on</button>
+        <button class="toggle" id="hands" type="button" aria-pressed="false" hidden>Hands-free off</button>
+      </div>
+      <div class="boot">
+        <div class="bar"><b id="bar"></b></div>
+        <button class="btn" id="start" type="button">Initialise</button>
+      </div>
+    </aside>
+
+    <section class="console">
+      <div class="log" id="log" role="log" aria-live="polite"></div>
+      <div class="input-row">
+        <textarea id="input" rows="1" placeholder="Speak or type your request" aria-label="Message" enterkeyhint="send"></textarea>
+        <button class="btn mic" id="mic" type="button" aria-label="Talk to JARVIS" aria-pressed="false" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/></svg>
+        </button>
+        <button class="btn" id="send" type="button">Send</button>
+      </div>
+    </section>
+  </main>
+  <script src="{% static 'jarvis.js' %}?v=5"></script>
+</body>
+</html>

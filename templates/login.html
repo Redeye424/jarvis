@@ -1,0 +1,23 @@
+{% load static %}<!doctype html>
+<html lang="en">
+<head>{% include "_head.html" with page_title="J.A.R.V.I.S. sign in" %}</head>
+<body>
+  <div class="login-wrap">
+    <main class="core-panel login">
+      <div class="core" id="core" aria-hidden="true">{% include "_reactor.html" %}</div>
+      <h1 class="wordmark">J.A.R.V.I.S.</h1>
+      <form method="post" id="form">
+        {% csrf_token %}
+        <input class="sr" type="text" name="username" value="jarvis" autocomplete="username" tabindex="-1" aria-hidden="true">
+        <div class="field">
+          <input id="pw" type="password" name="password" placeholder="Access code" aria-label="Access code" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" required>
+          <button class="reveal" id="reveal" type="button" aria-pressed="false" aria-label="Show access code">Show</button>
+        </div>
+        {% if error %}<p class="err" role="alert">{{ error }}</p>{% endif %}
+        <button class="btn" id="go" type="submit">Authenticate</button>
+      </form>
+    </main>
+  </div>
+  <script src="{% static 'login.js' %}?v=4"></script>
+</body>
+</html>
